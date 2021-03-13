@@ -1,0 +1,16 @@
+/Users/kyawsint/Projects/Testing/Testing.Web/bin/Debug/netcoreapp2.0/appsettings.Development.json
+/Users/kyawsint/Projects/Testing/Testing.Web/bin/Debug/netcoreapp2.0/appsettings.json
+/Users/kyawsint/Projects/Testing/Testing.Web/bin/Debug/netcoreapp2.0/bower.json
+/Users/kyawsint/Projects/Testing/Testing.Web/bin/Debug/netcoreapp2.0/bundleconfig.json
+/Users/kyawsint/Projects/Testing/Testing.Web/bin/Debug/netcoreapp2.0/Testing.Web.deps.json
+/Users/kyawsint/Projects/Testing/Testing.Web/bin/Debug/netcoreapp2.0/Testing.Web.runtimeconfig.json
+/Users/kyawsint/Projects/Testing/Testing.Web/bin/Debug/netcoreapp2.0/Testing.Web.runtimeconfig.dev.json
+/Users/kyawsint/Projects/Testing/Testing.Web/bin/Debug/netcoreapp2.0/Testing.Web.dll
+/Users/kyawsint/Projects/Testing/Testing.Web/bin/Debug/netcoreapp2.0/Testing.Web.pdb
+/Users/kyawsint/Projects/Testing/Testing.Web/obj/Debug/netcoreapp2.0/Testing.Web.csprojAssemblyReference.cache
+/Users/kyawsint/Projects/Testing/Testing.Web/obj/Debug/netcoreapp2.0/Testing.Web.AssemblyInfoInputs.cache
+/Users/kyawsint/Projects/Testing/Testing.Web/obj/Debug/netcoreapp2.0/Testing.Web.AssemblyInfo.cs
+/Users/kyawsint/Projects/Testing/Testing.Web/obj/Debug/netcoreapp2.0/Testing.Web.csproj.CoreCompileInputs.cache
+/Users/kyawsint/Projects/Testing/Testing.Web/obj/Debug/netcoreapp2.0/Testing.Web.dll
+/Users/kyawsint/Projects/Testing/Testing.Web/obj/Debug/netcoreapp2.0/Testing.Web.pdb
+/Users/kyawsint/Projects/Testing/Testing.Web/obj/Debug/netcoreapp2.0/Testing.Web.genruntimeconfig.cache
