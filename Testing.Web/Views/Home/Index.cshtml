@@ -1,8 +1,65 @@
-﻿@{
+﻿@model Testing.Web.ViewModels.SearchCurrencyRateViewModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "IndexForm" }))
+{
+<div>
+    <br />
+    <table>
+        <tr>
+            <td>@Html.Label("Exchange Rate : ")</td>
+            <td>@Html.Label(null, Model.FromCurrency.ToString(), new { @id = "lblFromCurrency" }) @Html.Label(null, Model.CurrencyRate.FromCurrencyCode, new { @id = "lblFromCurrencyCode" }) = @Html.Label(null, Model.CurrencyRate.ExchangeRate.ToString(), new { @id = "lblExchangeRate" }) @Html.Label(null, Model.CurrencyRate.ToCurrencyCode, new { @id = "lblToCurrency" }) </td></tr>
+        <tr>
+            <td>@Html.TextBoxFor(model => model.FromCurrency, new { @class = "form-control", @id = "txtFromCurrency", @onkeyup = "CurrencyOnChange(this);" })</td>
+            <td>@Html.DropDownListFor(model => model.FromCurrencyCode, Model.FromCurrencyCodeList, new { @class = "form-control", onchange = "CurrencyOnChange(this)" })</td>
+        </tr>
+        <tr>
+            <td>@Html.TextBoxFor(model => model.ToCurrency, new { @class = "form-control", @onkeyup = "CurrencyOnChange(this);" })</td>
+            <td>@Html.DropDownListFor(model => model.ToCurrencyCode, Model.ToCurrencyCodeList, new { @class = "form-control", onchange = "CurrencyOnChange(this)" })</td>
+        </tr>
+    </table>
+    @Html.HiddenFor(model => model.IsToCurrencyChanged)
+</div>
+    
+}
+
+
+<script type="text/javascript">
+
+    function CurrencyOnChange(control) {
+
+        if (control.name == "ToCurrency") {
+            $("#IsToCurrencyChanged").val(true);
+        }
+        $.ajax({
+                "url": '@Url.Action("CalculateExchangeRate", "Home")',
+                "type": "post",
+                "data": $("#IndexForm").serialize(),
+                "success": function(data) {
+                    if (data) {
+                        if (data.currencyRate != null) {
+                            $("#lblFromCurrencyCode").text(data.currencyRate.fromCurrencyCode);
+                            $("#lblToCurrencyCode").text(data.currencyRate.toCurrencyCode);
+                            $("#lblExchangeRate").text(data.currencyRate.exchangeRate);
+                        }
+                        else {
+                            $("#lblFromCurrencyCode").text(data.fromCurrencyCode);
+                            $("#lblToCurrencyCode").text(data.toCurrencyCode);
+                            $("#lblExchangeRate").text(1);
+                        }
+                        $("#FromCurrency").val(data.fromCurrency);
+                        $("#ToCurrency").val(data.toCurrency);
+                    }
+                }
+            });
+    }
+</script>
+
+
+<!-- <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -106,3 +163,4 @@
         </ul>
     </div>
 </div>
+-->

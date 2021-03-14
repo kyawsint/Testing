@@ -4746,6 +4746,19 @@
         "runtime": {
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
+      },
+      "Testing.API/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.All": "2.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Testing.API.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Testing.API.dll": {}
+        }
       }
     }
   },
@@ -12819,12 +12832,18 @@
         "windowsazure.storage.8.1.4.nupkg.sha512",
         "windowsazure.storage.nuspec"
       ]
+    },
+    "Testing.API/1.0.0": {
+      "type": "project",
+      "path": "../Testing.API/Testing.API.csproj",
+      "msbuildProject": "../Testing.API/Testing.API.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "Microsoft.AspNetCore.All >= 2.0.0",
-      "Microsoft.NETCore.App >= 2.0.0"
+      "Microsoft.NETCore.App >= 2.0.0",
+      "Testing.API >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -12855,7 +12874,11 @@
       "frameworks": {
         "netcoreapp2.0": {
           "targetAlias": "netcoreapp2.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/kyawsint/Projects/Testing/Testing.API/Testing.API.csproj": {
+              "projectPath": "/Users/kyawsint/Projects/Testing/Testing.API/Testing.API.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
