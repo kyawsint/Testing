@@ -13,11 +13,11 @@
             <td>@Html.Label("Exchange Rate : ")</td>
             <td>@Html.Label(null, Model.FromCurrency.ToString(), new { @id = "lblFromCurrency" }) @Html.Label(null, Model.CurrencyRate.FromCurrencyCode, new { @id = "lblFromCurrencyCode" }) = @Html.Label(null, Model.CurrencyRate.ExchangeRate.ToString(), new { @id = "lblExchangeRate" }) @Html.Label(null, Model.CurrencyRate.ToCurrencyCode, new { @id = "lblToCurrency" }) </td></tr>
         <tr>
-            <td>@Html.TextBoxFor(model => model.FromCurrency, new { @class = "form-control", @id = "txtFromCurrency", @onkeyup = "CurrencyOnChange(this);" })</td>
+            <td>@Html.TextBoxFor(model => model.FromCurrency, new { @class = "form-control", @onkeyup = "typewatch(CurrencyOnChange(this), 300);" })</td>
             <td>@Html.DropDownListFor(model => model.FromCurrencyCode, Model.FromCurrencyCodeList, new { @class = "form-control", onchange = "CurrencyOnChange(this)" })</td>
         </tr>
         <tr>
-            <td>@Html.TextBoxFor(model => model.ToCurrency, new { @class = "form-control", @onkeyup = "CurrencyOnChange(this);" })</td>
+            <td>@Html.TextBoxFor(model => model.ToCurrency, new { @class = "form-control", @onkeyup = "typewatch(CurrencyOnChange(this), 300);" })</td>
             <td>@Html.DropDownListFor(model => model.ToCurrencyCode, Model.ToCurrencyCodeList, new { @class = "form-control", onchange = "CurrencyOnChange(this)" })</td>
         </tr>
     </table>
@@ -28,6 +28,14 @@
 
 
 <script type="text/javascript">
+
+    var typewatch = function () {
+        var timer = 0;
+        return function (callback, ms) {
+            clearTimeout(timer);
+            timer = setTimeout(callback, ms);
+        };
+    }();
 
     function CurrencyOnChange(control) {
 

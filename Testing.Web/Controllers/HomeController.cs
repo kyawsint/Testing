@@ -90,7 +90,7 @@ namespace Testing.Web.Controllers
                         }
                         else
                         {
-                            model.FromCurrency = model.CurrencyRate.ExchangeRate / model.FromCurrency;
+                            model.FromCurrency = model.ToCurrency / model.CurrencyRate.ExchangeRate;
                         }
                     }
                 }
